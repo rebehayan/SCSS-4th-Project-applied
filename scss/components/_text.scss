@@ -1,0 +1,27 @@
+@use "sass:list";
+@use "../abstracts" as *;
+
+$textType: (
+  1: (
+    "className": "heading.base",
+    "fontSize": rem(15),
+    "color": red,
+    "fontWeight": 700,
+    "lineHeight": rem(17),
+    "letterSpacing": null,
+  ),
+  2: (
+    "className": text-type1,
+    "fontSize": rem(30),
+    "color": orange,
+    "fontWeight": 900,
+    "lineHeight": null,
+    "letterSpacing": null,
+  ),
+);
+
+$textLength: list.length($textType);
+
+@for $index from 1 through $textLength {
+  @include text($textType, $index);
+}
