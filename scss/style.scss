@@ -1,4 +1,4 @@
-// @layer layout;
-@import "base";
-@import "layout";
-@import "pages";
+@use "base";
+@use "components";
+@use "layout";
+@use "pages";
