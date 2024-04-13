@@ -24,6 +24,7 @@ $textType: (
     "fontWeight": 700,
     "lineHeight": rem(30),
     "letterSpacing": rem(-0.21),
+    "margin": 0 rem(20) rem(12),
   ),
   4: (
     "className": ".heading.base",
@@ -127,4 +128,10 @@ $textLength: list.length($textType);
 
 @for $index from 1 through $textLength {
   @include text($textType, $index);
+}
+
+.heading.md {
+  .align & {
+    margin-bottom: 0;
+  }
 }

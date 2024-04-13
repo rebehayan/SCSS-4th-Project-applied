@@ -1,10 +1,42 @@
 @use "../abstracts/" as *;
+@use "../base/" as *;
 
 .btn {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
+  white-space: nowrap;
+  &.alram {
+    position: relative;
+    &::after {
+      @include position(a, right, rem(-4), top, rem(-2));
+      content: "";
+      width: rem(14);
+      height: rem(14);
+      border-radius: 100%;
+      background-color: $green;
+      border: rem(2) solid $white;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.btn-more {
+  display: flex;
+  align-items: center;
+  gap: rem(13);
+  color: $gray20;
+  font-family: $english2;
+  font-size: rem(15);
+  font-weight: 700;
+  margin-right: rem(20);
+  &::after {
+    content: "";
+    @include background("ico_notice.svg");
+    width: rem(30);
+    height: rem(30);
+  }
 }
 
 @include buttonSize(lg, 60, 22, 44);

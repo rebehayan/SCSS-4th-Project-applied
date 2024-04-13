@@ -5,5 +5,6 @@
     font-weight: map-get($map, $index, fontWeight);
     line-height: map-get($map, $index, lineHeight);
     letter-spacing: map-get($map, $index, letterSpacing);
+    margin: map-get($map, $index, margin);
   }
 }
