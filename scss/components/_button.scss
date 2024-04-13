@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+@include buttonSize(lg, 60, 22, 44);
+@include buttonSize(md, 50, 22, 44);
+@include buttonSize(base, 40, 16, 27);
+@include buttonSize(sm, 35, 16, 18);
+@include buttonSize(xs, 30, 22, 16);
+
+@include buttonColor(blue, $white, $blue);
+@include buttonColor(pink, $white, $pink);
+@include buttonColor(black, $white, $gray20);
+@include buttonColor(blue2, $blue, $bluee5);
+@include buttonColor(gray, $black, $graye7);
+@include buttonColor("outline-blue", $blue, $white, rem(2), $blue);

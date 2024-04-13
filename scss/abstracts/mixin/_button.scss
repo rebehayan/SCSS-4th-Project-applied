@@ -1,0 +1,31 @@
+@use '../function' as *;
+// 크기 - 높이, 글자크기
+//        60 50 40 35 30 
+//        lg md base sm xs
+
+// 색상 - 배경색 : 파랑, 핑크, 검정, 옅은파랑, 회색
+//        선색 : 파랑,
+
+//a, button
+@mixin buttonSize($size, $height, $fontSize, $padding) {
+  .btn.#{$size}{
+    height: rem($height);
+    font-size: rem($fontSize);
+    padding: rem($padding);
+  }
+}
+
+
+// @mixin buttonColor($class, $color, $bgColor, $border : null) {
+// @include buttonColor(class, $white, $blue, rem(2) solid $blue )
+// 이런식으로도 사용 가능
+
+@mixin buttonColor($class, $color, $bgColor, $borderWidth : null, $borderColor : null) {
+  .btn.#{$class}{
+    color: $color;
+    background-color: $bgColor;
+    @if ($borderWidth != null){
+      border: $borderWidth solid $borderColor;
+    }
+  }
+}

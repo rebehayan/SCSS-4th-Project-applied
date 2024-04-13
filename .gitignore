@@ -1,2 +1,7 @@
 node_modules
 .vscode
+package.json
+package-lock.json
+.gitignore
+readme.md
+.Ds_Store

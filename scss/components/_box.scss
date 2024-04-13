@@ -1,0 +1,7 @@
+@use '../abstracts/' as *;
+
+.box-white{
+  border: rem(5) solid $white;
+  border-radius: rem(9);
+  box-shadow: 0px 5px 10px 0px rgba($black, 0.1);
+}
