@@ -108,10 +108,10 @@
     letter-spacing: rem(-0.15);
     font-family: $english2;
     &::after {
-      @include background("ico_like.svg", null, null, contain);
-      content: "";
-      width: rem(10);
-      height: rem(10);
+      // @include background("ico_like.svg", null, null, contain);
+      // content: "";
+      // width: rem(10);
+      // height: rem(10);
     }
   }
 
