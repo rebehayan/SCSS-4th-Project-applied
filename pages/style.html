@@ -4,12 +4,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="../scss/style.css">
   <title>스타일가이드</title>
 </head>
 
 <body>
+  <button class="btn lg blue">버튼</button>
+  <button class="btn md blue">버튼</button>
+  <button class="btn base blue">버튼</button>
+  <button class="btn sm blue">버튼</button>
+  <button class="btn xs blue">버튼</button>
+  <br/>
+  <button class="btn base pink">버튼</button>
+  <button class="btn base black">버튼</button>
+  <button class="btn base blue2">버튼</button>
+  <button class="btn base gray">버튼</button>
+  <button class="btn base outline-blue">버튼</button>
+  <hr/>
+  <ul class="product-vertical">
+    <li>
+      <a href=""><img src="../images/@product.png" alt=""></a>
+    </li>
+    <li>
+      <a href=""><img src="../images/@product.png" alt=""></a>
+    </li>
+    <li>
+      <a href=""><img src="../images/@product.png" alt=""></a>
+    <li>
+      <a href=""><img src="../images/@product.png" alt=""></a>
+    </li>
+  </ul>
+  <hr/>
+  <ul class="product-list">
+    <!-- colum3 으로 css해버리면 반응형할 때 .colum3해놓고 모바일에 2개로 해버릴수있음
+    해결법  _product.scss의 .product-list 에서 보기. MCB도 이렇게 비율로 했어야했는데 ㅠㅠ-->
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <!-- 이미지에 외곽선 있어서 div로 한번 더 감싸기 -->
+          <!-- 공통부분은 product-list로 -->
+          <img src="../images/@product2.png" alt="">
+        </div>
+        <div class="text xs">Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="product-list__price heading sm ">$17,00</div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <!-- 이미지에 외곽선 있어서 div로 한번 더 감싸기 -->
+          <!-- 공통부분은 product-list로 -->
+          <img src="../images/@product2.png" alt="">
+        </div>
+        <div class="text xs">Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="product-list__price heading sm ">$17,00</div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <!-- 이미지에 외곽선 있어서 div로 한번 더 감싸기 -->
+          <!-- 공통부분은 product-list로 -->
+          <img src="../images/@product2.png" alt="">
+        </div>
+        <div class="text xs">Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="product-list__price heading sm ">$17,00</div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <!-- 이미지에 외곽선 있어서 div로 한번 더 감싸기 -->
+          <!-- 공통부분은 product-list로 -->
+          <img src="../images/@product2.png" alt="">
+        </div>
+        <div class="text xs">Lorem ipsum dolor sit amet consectetur.</div>
+        <!-- <div class="product-list__price heading sm ">$17,00</div> -->
+        <div class="product-list__price heading sm ">$17,00</div>
+      </a>
+    </li>
+  </ul>
 
+  <ul class="only-prodect">
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <img src="../images/@product2.png" alt="제품명">
+        </div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <img src="../images/@product2.png" alt="제품명">
+        </div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <img src="../images/@product2.png" alt="제품명">
+        </div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <img src="../images/@product2.png" alt="제품명">
+        </div>
+      </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="box-white product-list__thumb">
+          <img src="../images/@product2.png" alt="제품명">
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="product-like">
+    <li>
+      <a href="">
+        <div class="product-like__thumb">
+          <img src="../images/@product2.png" alt="" />
+        </div>
+        <div class="product-like__count">1780</div>
+        <div class="product-like__state text md2">New</div>
+      </a>
+    </li>
+  </ul>
 </body>
 
 </html>

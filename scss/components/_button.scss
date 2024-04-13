@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+
+.btn{
+    // button은 모두 .btn클래스가 들어가서 공통요소 지정
+    display: inline-flex;
+    align-items: center;
+    // 버튼은 횡으로 가기 때문에 inline-flex
+    cursor: pointer;
+    // 버튼은 커서가 포인터가 아니라서 지정해줘야함
+    box-sizing: border-box;
+    // background-color: $blue;
+    // color: $white;
+    //선굵기가 폰트그기와 연관있지만 box-sizing쓰면 신경안써도 됨. (안쪽으로 선굵기 들어가니 크기동일)
+}
+@include buttonSize(lg, 60, 22, 44);
+@include buttonSize(md, 50, 22, 44);
+@include buttonSize(base, 40, 16, 33);
+@include buttonSize(sm, 35, 16, 18);
+@include buttonSize(xs, 30, 16, 16);
+
+@include buttonColor(blue, $white, $blue);
+@include buttonColor(pink, $white, $pink);
+@include buttonColor(black, $white, $gray20);
+@include buttonColor(blue2, $blue, $bluee5);
+@include buttonColor(gray, $black, $graye7);
+@include buttonColor("outline-blue", $blue, $white, rem(2), $blue);
+//이거이해안됨 
+//나중에 변수를 map으로 해볼것. 계속 include안써도됨. 노션에 있음

@@ -3,20 +3,123 @@
 
 $textType: (
   1: (
-    "className": ".heading.base",
-    "fontSize": rem(15),
-    "color": red,
+    "className": ".heading.xl",
+    "fontSize": rem(28),
+    "color": $black,
     "fontWeight": 700,
-    "lineHeight": rem(17),
-    "letterSpacing": null,
+    "lineHeight": rem(36),
+    "letterSpacing": rem(-0.28),
   ),
   2: (
-    "className": ".text-type1",
-    "fontSize": rem(30),
-    "color": orange,
-    "fontWeight": 900,
-    "lineHeight": null,
+    "className": ".heading.lg",
+    "fontSize": rem(28),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(36),
+    "letterSpacing": rem(-0.28),
+  ),
+
+  3: (
+    "className": ".heading.md",
+    "fontSize": rem(21),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(30),
+    "letterSpacing": rem(-0.21),
+  ),
+  4: (
+    "className": ".heading.base",
+    "fontSize": rem(20),
+    "color": $gray20,
+    "fontWeight": 800,
+    "lineHeight": rem(26),
+    "letterSpacing": rem(-0.2),
+  ),
+  5: (
+    "className": ".heading.sm",
+    "fontSize": rem(17),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(21),
+    "letterSpacing": rem(-0.17),
+  ),
+  6: (
+    "className": ".heading.sm",
+    "fontSize": rem(14),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(18),
+    "letterSpacing": rem(-0.14),
+  ),
+
+
+
+
+
+  7: (
+    "className": ".text.xxl",
+    "fontSize": rem(18),
+    "color": $gray20,
+    "fontWeight": 500,
+    "lineHeight": rem(26),
+    "letterSpacing": rem(-0.18),
+  ),
+  8: (
+    "className": ".body.lg",
+    "fontSize": rem(19),
+    "color": $black,
+    "fontWeight": 300,
+    "lineHeight": rem(27),
     "letterSpacing": null,
+  ),
+  9: (
+    "className": ".text.md",
+    "fontSize": rem(16),
+    "color": $black,
+    "fontWeight": 600,
+    "lineHeight": rem(20),
+    "letterSpacing": rem(-0.16),
+  ),
+  10: (
+    "className": ".text.base",
+    "fontSize": rem(18),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(36),
+    "letterSpacing": rem(-0.14),
+  ),
+  11: (
+    "className": ".text.sm",
+    "fontSize": rem(13),
+    "color": $gray20,
+    "fontWeight": 500,
+    "lineHeight": rem(17),
+    "letterSpacing": rem(-0.13),
+  ),
+  12: (
+    "className": ".text.xs",
+    "fontSize": rem(12),
+    "color": $gray20,
+    "fontWeight": 400,
+    "lineHeight": rem(16),
+    "letterSpacing": null,
+  ),
+  13: (
+    "className": ".text.xxs",
+    "fontSize": rem(12),
+    "color": $gray20,
+    "fontWeight": 400,
+    "lineHeight": rem(16),
+    "letterSpacing": null,
+  ),
+  
+  15: (
+    "className": ".text.md2",
+    "fontSize": rem(10),
+    "color": $black,
+    "fontWeight": 700,
+    "lineHeight": rem(19),
+    "letterSpacing": rem(-0.15),
   ),
 );
 
@@ -25,3 +128,5 @@ $textLength: list.length($textType);
 @for $index from 1 through $textLength {
   @include text($textType, $index);
 }
+
+//text-type1

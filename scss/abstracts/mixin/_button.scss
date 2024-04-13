@@ -1,0 +1,62 @@
+@use "../function" as *;
+// 버튼구성 
+// - 크기 : 높이, 글자크기 (좌우는 안봄. 텍스트 글자에 따르거나 디바이스에 꽉찰수있어서)
+// - 색상 : 배경색 있는 것, 선 색이 있는 것
+// - 아이콘
+// - 둥글기 radius
+
+// 60 50  40  35  30
+// lg md base sm xs (base를 기준으로 확장)
+// **radius는 폼, 인풋, 탭메뉴에 있을 수 있어서 따로 관리.
+// a, button
+
+//글씨색, 배경색, 선색(버튼의 크기와 관련있다)
+
+// 구조분석 -> css 짜보기 -> 믹스인넣고 =-> 실행해보기
+
+// @mixin buttonSize() {
+//     .btn.lg {
+//         height: rem(60);
+//         font-size: rem(22);
+//         padding: 0 rem(44);
+//         이 세개만 크기에 따라 바뀌는 것임. 클래스 크기에 따라서.
+
+//     }
+// }
+@mixin buttonSize($size, $height, $fontSize, $padding) {
+    .btn.#{$size} {
+        // 문자열이니 #{$}로 감싸야함
+        height: rem($height);
+        font-size: rem($fontSize);
+        padding: 0 rem($padding);
+
+    }
+    //버튼을 만들기 위한 정의를 한 것임. 실행은 component에서 해야햠 (components/_button.scss)
+}
+
+// @mixin buttonColor() {
+//     .btn.blue {
+//         color: $white;
+//         background-color: $blue;
+//         // 달라지는 점 : 클래스명, 컬러, 배경컬러
+//     }
+// }
+
+// 외곽선이 있다면 어어떻게 구분? blue / outline-blue로 구분
+@mixin buttonColor($class, $color, $bgColor, $borderWidth:null, $borderColor:null) {
+    
+    //$border:null 로만 하려면 include시 rem(1) solid $white 라고 한꺼번에 넣으면 됨
+    .btn.#{$class} {
+        color: $color;
+        background-color: $bgColor;
+        // 달라지는 점 : 클래스명, 컬러, 배경컬러
+        // 외곽선이 있다면 어어떻게 구분? blue / outline-blue로 구분
+        border: $borderWidth solid $borderColor;
+        // rem($borderWidth) 로 하면 null값이 들어가서 에러남. (style.css나 터미널에서 에러메세지 확인해보기)
+        // include시 rem(1) 넣어도 되지만 여기서는 $borderWidth로 쓸것
+        @if ($borderWidth != null) {
+            border: $borderWidth solid $borderColor;
+        }
+
+    }
+}
