@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+.top-menu{
+  margin: rem(20);
+  .bg-img {
+    gap: rem(11);
+  }
+  
+  .avatar{
+    gap:rem(14);
+  }
+}

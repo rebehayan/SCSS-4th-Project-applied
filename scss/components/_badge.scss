@@ -1,0 +1,41 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+%badge-common {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  padding: rem(4) rem(8);
+  border-radius: rem(4);
+  font-family: $english2;
+}
+
+.badge {
+  @extend %badge-common;
+  &.no-radius {
+    border-bottom-right-radius: 0;
+  }
+}
+
+.clock-badge {
+  display: flex;
+  align-items: center;
+  gap: rem(10.4);
+  margin-right: rem(20);
+  &__number {
+    font-family: $english2;
+    display: inline-flex;
+    align-items: center;
+    gap: rem(2);
+    > span {
+      padding: rem(3) rem(5);
+      background-color: $pinkff;
+      border-radius: rem(7);
+      box-sizing: border-box;
+    }
+  }
+}
+
+@include badge(green, $green, rem(20));
+@include badge(pink, $pink, rem(20));
