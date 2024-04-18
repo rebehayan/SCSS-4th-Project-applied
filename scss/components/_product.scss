@@ -10,16 +10,30 @@
 
 %productThumb {
   overflow: hidden;
+  // &:hover {
+  //   img {
+  //     transform: scale(1.5);
+  //   }
+  // }
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1);
+    transition: 0.3s;
+    li:hover & {
+      transform: scale(1.5);
+    }
   }
 }
 
 .product-vertical {
   display: flex;
   gap: rem(6);
+  padding-left: rem(20);
+  margin-bottom: rem(20);
+  overflow-x: auto;
+  overflow-y: hidden;
   a {
     display: block;
     @extend %productThumb;
@@ -27,12 +41,24 @@
     border-radius: rem(9);
     width: rem(104);
     height: rem(175);
+    position: relative;
     img {
       // width: 100%;
       // height: 100%;
       // object-fit: cover;
-      transform: scale(1.2);  //원래 이미지가 여백이 있어서 이렇게 처리하기
+      //transform: scale(1.2);  //원래 이미지가 여백이 있어서 이렇게 처리하기
       transform-origin: center;
+    }
+    &.video {
+      &::after {
+        @include background('ico_video.svg');
+        @include position(absolute, left, 50%, top, 50%, 10);
+        content: "";
+        width: rem(29);
+        height: rem(29);
+        border-radius: 100%;
+        box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.10);
+      }
     }
   }
 }
@@ -40,6 +66,15 @@
 .product-list {
   @extend %product;
   gap: rem(6);
+  margin: rem(10) 0 rem(25) rem(20);
+  &.scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    img {
+      min-width:rem(150);
+    }
+  }
   &__thumb {
     margin-bottom: rem(6);
     img {
@@ -63,6 +98,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: rem(6);
+  margin: rem(15) 0 rem(27) rem(20);
   li {
     @extend .box-white;
   }
@@ -98,5 +134,57 @@
   &__state {
     justify-self: end;
     align-self: center;
+  }
+}
+
+.product-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(5);
+  margin: rem(10) rem(20) rem(28);
+  > li {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    border-radius: rem(9);
+    box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.10);
+  }
+  &__count {
+    background-color: $grayf3;
+    padding: rem(1) rem(7);
+    box-sizing: border-box;
+    border-radius: rem(9);
+  }
+  &__img {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:rem(2);
+    padding: rem(5) rem(5) 0;
+    > img {
+      align-self: center;
+      justify-self: center;
+      border-radius: rem(6);
+      aspect-ratio: 1 / 1;
+    }
+  }
+  &__text {
+    padding: rem(6) rem(5) rem(6);
+    font-family: $english2;
+  }
+}
+
+.product-sale{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(6) rem(4);
+  margin: rem(10) rem(20) rem(35);
+  a{
+    position: relative;
+    img {
+      border-radius: rem(6);
+    }
+  }
+  .sales {
+    @include position(absolute, right, rem(5), top, rem(5));
   }
 }

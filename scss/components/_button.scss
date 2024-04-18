@@ -1,10 +1,107 @@
 @use "../abstracts/" as *;
+@use "../base/" as *;
 
+%common {
+  display: block;
+  border-radius: 100%;
+  width:rem(35);
+  height:rem(35);
+}
+
+%gnb-common {
+  display: inline-flex;
+  width: rem(25);
+  height: rem(31);
+  margin-top: rem(14);
+}
 .btn {
   display: inline-flex; // 버튼은 안에 붙을수 있어서 inline-flex로!!
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
+  white-space: nowrap;
+  &.alarm {
+    position: relative; //버튼위에 올라오도록 하기 위해서
+    &::after{
+      @include position(absolute, right, rem(-4), top, rem(-2));
+      content:"";
+      width: rem(14);
+      height: rem(14);
+      background-color: $green;
+      border-radius: 100%;
+      border: rem(2) solid $white;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.btn-more {
+  display: flex;
+  gap: rem(14);
+  align-items: center;
+  color: $gray20;
+  font-family: $english2;
+  font-size: rem(15);
+  font-weight: 700;
+  margin-right: rem(20);
+  &::after {
+    content: "";
+    @include background('ico_notice.svg');
+    width:rem(30);
+    height:rem(30);
+  }
+}
+
+.btn-voucher {
+  @extend %common;
+  @include background('ico_voucher.svg', center, $grayf8);
+}
+.btn-comment {
+  @extend %common;
+  @include background('ico_comment.svg', center, $grayf8);
+  &.alarm {
+    position: relative; //버튼위에 올라오도록 하기 위해서
+    &::after{
+      @include position(absolute, right, 0);
+      content:"";
+      width: rem(8);
+      height: rem(8);
+      background-color: $blue;
+      border-radius: 100%;
+      border: rem(1) solid $white;
+      box-sizing: border-box;
+    }
+  }
+}
+.btn-setting {
+  @extend %common;
+  @include background('ico_setting.svg', center, $grayf8);
+}
+
+
+.btn-home {
+  @extend %gnb-common;
+  @include background('ico_home.svg', center);
+}
+
+.btn-wishlist{
+  @extend %gnb-common;
+  @include background('ico_wishlist.svg', center);
+}
+
+.btn-categories{
+  @extend %gnb-common;
+  @include background('ico_categories.svg', center);
+}
+
+.btn-bags{
+  @extend %gnb-common;
+  @include background('ico_bags.svg', center);
+}
+
+.btn-my {
+  @extend %gnb-common;
+  @include background('ico_my.svg', bottom);
 }
 
 @include buttonSize(lg, 60, 22, 44);

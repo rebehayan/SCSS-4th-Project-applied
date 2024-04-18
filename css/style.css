@@ -527,11 +527,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+li:hover .product-like__thumb img, li:hover .product-vertical a img, .product-vertical li:hover a img {
+  transform: scale(1.5);
 }
 
 .product-vertical {
   display: flex;
   gap: 0.6rem;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .product-vertical a {
@@ -539,15 +549,40 @@ body {
   border-radius: 0.9rem;
   width: 10.4rem;
   height: 17.5rem;
+  position: relative;
 }
 
 .product-vertical a img {
-  transform: scale(1.2);
   transform-origin: center;
+}
+
+.product-vertical a.video::after {
+  background: url(../images/ico_video.svg) no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: var(--zindex, 10);
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 100%;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .product-list {
   gap: 0.6rem;
+  margin: 1rem 0 2.5rem 2rem;
+}
+
+.product-list.scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.product-list.scroll img {
+  min-width: 15rem;
 }
 
 .product-list__thumb {
@@ -574,6 +609,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.6rem;
+  margin: 1.5rem 0 2.7rem 2rem;
 }
 
 .product-like a {
@@ -611,6 +647,69 @@ body {
   align-self: center;
 }
 
+.product-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 2rem 2.8rem;
+}
+
+.product-categories > li {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.product-categories__count {
+  background-color: #F3F3F3;
+  padding: 0.1rem 0.7rem;
+  box-sizing: border-box;
+  border-radius: 0.9rem;
+}
+
+.product-categories__img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.2rem;
+  padding: 0.5rem 0.5rem 0;
+}
+
+.product-categories__img > img {
+  align-self: center;
+  justify-self: center;
+  border-radius: 0.6rem;
+  aspect-ratio: 1/1;
+}
+
+.product-categories__text {
+  padding: 0.6rem 0.5rem 0.6rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.product-sale {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem 0.4rem;
+  margin: 1rem 2rem 3.5rem;
+}
+
+.product-sale a {
+  position: relative;
+}
+
+.product-sale a img {
+  border-radius: 0.6rem;
+}
+
+.product-sale .sales {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: var(--zindex, 1);
+}
+
 .heading.xl {
   font-size: 5rem;
   color: #000000;
@@ -624,6 +723,7 @@ body {
   font-weight: 700;
   line-height: 3.6rem;
   letter-spacing: -0.028rem;
+  margin: 0 0 1.2rem 2rem;
 }
 
 .heading.md {
@@ -632,6 +732,7 @@ body {
   font-weight: 700;
   line-height: 3rem;
   letter-spacing: -0.021rem;
+  margin: 0 2rem 1.2rem;
 }
 
 .heading.base {
@@ -727,11 +828,131 @@ body {
   letter-spacing: -0.015rem;
 }
 
+.text.xs2 {
+  font-size: 1.2rem;
+  color: #202020;
+  font-weight: 700;
+  line-height: 2.1rem;
+  letter-spacing: -0.015rem;
+}
+
+.text.xs3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.8rem;
+  letter-spacing: -0.014rem;
+}
+
+.align .heading.md {
+  margin-bottom: 0;
+}
+
+.btn-setting, .btn-comment, .btn-voucher {
+  display: block;
+  border-radius: 100%;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.btn-my, .btn-bags, .btn-categories, .btn-wishlist, .btn-home {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 3.1rem;
+  margin-top: 1.4rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.btn.alarm {
+  position: relative;
+}
+
+.btn.alarm::after {
+  position: absolute;
+  right: -0.4rem;
+  top: -0.2rem;
+  z-index: var(--zindex, 1);
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #08c514;
+  border-radius: 100%;
+  border: 0.2rem solid #ffffff;
+  box-sizing: border-box;
+}
+
+.btn-more {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  color: #202020;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 2rem;
+}
+
+.btn-more::after {
+  content: "";
+  background: url(../images/ico_notice.svg) no-repeat;
+  width: 3rem;
+  height: 3rem;
+}
+
+.btn-voucher {
+  background: url(../images/ico_voucher.svg) no-repeat center #f8f8f8;
+}
+
+.btn-comment {
+  background: url(../images/ico_comment.svg) no-repeat center #f8f8f8;
+}
+
+.btn-comment.alarm {
+  position: relative;
+}
+
+.btn-comment.alarm::after {
+  position: absolute;
+  right: 0;
+  z-index: var(--zindex, 1);
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #004cff;
+  border-radius: 100%;
+  border: 0.1rem solid #ffffff;
+  box-sizing: border-box;
+}
+
+.btn-setting {
+  background: url(../images/ico_setting.svg) no-repeat center #f8f8f8;
+}
+
+.btn-home {
+  background: url(../images/ico_home.svg) no-repeat center;
+}
+
+.btn-wishlist {
+  background: url(../images/ico_wishlist.svg) no-repeat center;
+}
+
+.btn-categories {
+  background: url(../images/ico_categories.svg) no-repeat center;
+}
+
+.btn-bags {
+  background: url(../images/ico_bags.svg) no-repeat center;
+}
+
+.btn-my {
+  background: url(../images/ico_my.svg) no-repeat bottom;
 }
 
 .btn.lg {
@@ -793,6 +1014,153 @@ body {
   color: #004cff;
   background-color: #ffffff;
   border: 0.2rem solid #004cff;
+}
+
+.announcement {
+  background: url(../images/ico_notice.svg) no-repeat right 1.2rem bottom 1.2rem #f8f8f8;
+  padding: 1rem 4.6rem 1rem 1.4rem;
+  border-radius: 1.2rem;
+  margin: 0 2rem 1.8rem;
+}
+
+.announcement p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.profile-base {
+  overflow: hidden;
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  border: 0.5rem solid #ffffff;
+  box-sizing: border-box;
+  filter: drop-shadow(0 0.5rem 1rem rgba(141, 141, 141, 0.16));
+}
+
+.profile-base img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-sm {
+  overflow: hidden;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  border: 0.4rem solid #ffffff;
+  box-sizing: border-box;
+  filter: drop-shadow(0 0.5rem 1rem rgba(141, 141, 141, 0.16));
+}
+
+.profile-sm img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.9rem;
+  margin: 0 2rem 2.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.radius-35 {
+  border-radius: 3.5rem;
+}
+
+.top-menu {
+  margin: 2rem;
+}
+
+.top-menu .bg-img {
+  gap: 1.1rem;
+}
+
+.top-menu .avatar {
+  gap: 1.4rem;
+}
+
+.gnb-list {
+  position: fixed;
+  bottom: 0;
+  z-index: var(--zindex, 1);
+  width: 100%;
+  min-height: 8.4rem;
+  display: flex;
+  justify-content: center;
+  gap: 5.3rem;
+  background-color: #ffffff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.badge.no-radius {
+  border-bottom-right-radius: 0;
+}
+
+.clock-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.04rem;
+  margin-right: 2rem;
+}
+
+.clock-badge__number {
+  font-family: "Raleway", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.clock-badge__number > span {
+  padding: 0.3rem 0.5rem;
+  background-color: #ffebeb;
+  border-radius: 0.7rem;
+  box-sizing: border-box;
+}
+
+.badge.green {
+  background-color: #08c514;
+  box-sizing: border-box;
+  height: 2rem;
+}
+
+.badge.pink {
+  background-color: #ff5790;
+  box-sizing: border-box;
+  height: 2rem;
+}
+
+main {
+  margin-bottom: 9rem;
+}
+
+.my-order-list {
+  display: flex;
+  gap: 0.8rem;
+  margin: 0 2rem 2.8rem;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

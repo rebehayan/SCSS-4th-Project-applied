@@ -17,6 +17,7 @@ $textType: (
     "fontWeight": 700,
     "lineHeight": rem(36),
     "letterSpacing": rem(-0.28),
+    "margin": 0 0 rem(12) rem(20)
   ),
   3: (
     "className": ".heading.md",
@@ -25,6 +26,7 @@ $textType: (
     "fontWeight": 700,
     "lineHeight": rem(30),
     "letterSpacing": rem(-0.21),
+    "margin": 0 rem(20) rem(12)
   ),
   4: (
     "className": ".heading.base",
@@ -122,10 +124,32 @@ $textType: (
     "lineHeight": rem(19),
     "letterSpacing": rem(-0.15),
   ),
+  16: (
+    "className": ".text.xs2",
+    "fontSize": rem(12),
+    "color": $gray20,
+    "fontWeight": 700,
+    "lineHeight": rem(21),
+    "letterSpacing": rem(-0.15),
+  ),
+  17: (
+    "className": ".text.xs3",
+    "fontSize": rem(13),
+    "color": $white,
+    "fontWeight": 600,
+    "lineHeight": rem(18),
+    "letterSpacing": rem(-0.14),
+  ),
 );
 
 $textLength: list.length($textType);
 
 @for $index from 1 through $textLength {
   @include text($textType, $index);
+}
+
+.heading.md {
+  .align & {
+    margin-bottom: 0;
+  }
 }
