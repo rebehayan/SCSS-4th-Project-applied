@@ -1,0 +1,16 @@
+$imgUrl: "../imgs/";
+
+@mixin background($image, $coordinate: null, $color: null, $size: null) {
+  // $imgUrl: "/imgs/"; //배포용
+
+  background: url(#{$imgUrl}#{$image}) no-repeat $coordinate $color;
+  background-size: $size;
+}
+
+
+// 이미지명, 좌표, 배경색, 크기
+// @include background('img.svg');
+// @include background('img.svg', 10px 20px, red, cover);
+
+
+// @include background ("Stories/@thumb_img_01.png");

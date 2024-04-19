@@ -1,0 +1,28 @@
+@use  "../abstracts/" as *;
+
+.announcement {
+    //@include background("../../imgs/1/Arrow.svg", right rem(12) bottom rem(10), $grayf8);
+    background-color: $grayf8;
+    padding: rem(10) rem(30) rem(10) rem(14);
+    border-radius: rem(10);
+    margin: rem(20) rem(20) rem(20) rem(18);
+    position: relative;
+
+    p{
+       @include ellipsis(2);
+
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 100%;
+            background-color: $blue;
+            @include position(a, right, rem(6), bottom, rem(6));
+        }
+    }
+    img{
+        @include position(a, right, rem(21), bottom, rem(21));
+        transform: translate(50%, 50%);
+    }
+}

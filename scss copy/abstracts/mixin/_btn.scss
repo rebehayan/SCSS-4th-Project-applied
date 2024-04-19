@@ -1,0 +1,23 @@
+@use "../function" as *;
+//크기-높이 글자크기
+//60,50,40,35,30
+
+@mixin buttonSize($size, $height, $font-size, $padding){
+    .btn.#{$size}{
+        height: rem($height);
+        font-size: rem($font-size);
+        padding:0 rem($padding);
+        
+    }
+}
+
+@mixin buttonColor($class, $color, $bgColor, $borderWidth:null,$borderColor:null/*, $radius*/){
+    .btn.#{$class}{
+        color: $color;
+        background-color: $bgColor;
+       // border-radius: rem($radius);
+        @if ($borderWidth != null){
+             border: $borderWidth solid $borderColor;
+        }
+    }
+}
