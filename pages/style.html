@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>스타일가이드</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="./js/common.js" defer></script>
     <style>
       body {
         padding: 2rem;
@@ -172,6 +173,30 @@
     <h3>input 색상</h3>
     <input type="password" class="input base blue" placeholder="Password" /><br />
     <input type="password" class="input base" placeholder="Password" /><br />
-    <textarea></textarea>
+    <textarea class="input blue rounded-base" rows="4"></textarea>
+    <textarea class="input blue rounded-base lg" style="--height: 10rem"></textarea>
+    <br />
+    <br />
+    <input type="radio" class="radio" name="radio_group" id="radio1_1" checked /><label for="radio1_1">SMS</label><br />
+    <input type="radio" class="radio" name="radio_group" id="radio1_2" /><label for="radio1_2">Email </label>
+    <br />
+    <br />
+    <br />
+    <!-- <div class="banner">적립부터 결제까지, <br />치킨부터 와인까지</div> -->
+    <div class="phone">
+      <button>깃발</button>
+      <ul class="phone__list">
+        <li><button>깃발1</button></li>
+        <li><button>깃발2</button></li>
+        <li><button>깃발3</button></li>
+      </ul>
+      <input type="tel" name="" id="" />
+    </div>
+    <hr />
+    <button class="open-alert">경고창열기</button>
+    <dialog class="dialog alert">
+      <strong>We couldn't proceed<br />your payment</strong>
+      <p>Please, change your payment method or try again</p>
+    </dialog>
   </body>
 </html>

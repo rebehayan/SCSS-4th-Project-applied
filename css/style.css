@@ -599,7 +599,7 @@ li:hover .product-like__thumb img, li:hover .product-list__thumb img, li:hover .
   border-radius: 3.5rem;
 }
 
-.input {
+.phone, .input {
   width: 100%;
   padding: 0 1.9rem;
   box-sizing: border-box;
@@ -611,19 +611,19 @@ li:hover .product-like__thumb img, li:hover .product-list__thumb img, li:hover .
   background: #f8f8f8;
 }
 .input.sm {
-  height: 3rem;
+  height: var(--height, 3rem);
   border-radius: 3rem;
 }
 .input.base {
-  height: 3.6rem;
+  height: var(--height, 3.6rem);
   border-radius: 3.6rem;
 }
 .input.md {
-  height: 5rem;
+  height: var(--height, 5rem);
   border-radius: 5rem;
 }
 .input.lg {
-  height: 5.5rem;
+  height: var(--height, 5.5rem);
   border-radius: 5.5rem;
 }
 .input.rounded-sm {
@@ -642,6 +642,147 @@ li:hover .product-like__thumb img, li:hover .product-list__thumb img, li:hover .
   color: #d2d2d2;
 }
 
+.radio {
+  overflow: hidden;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.radio + label {
+  background: url(../images/bg_radio_off.svg) no-repeat right 0.8rem center #ffebeb;
+  background-size: 2.6rem auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 4.2rem;
+  box-sizing: border-box;
+  height: 4rem;
+  border-radius: 4rem;
+  color: #000000;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.015rem;
+  cursor: pointer;
+}
+.radio:checked + label {
+  background: url(../images/bg_radio_on.svg) no-repeat right 0.8rem center #e5ebfc;
+  background-size: 2.6rem auto;
+  color: #004cff;
+  font-weight: 700;
+}
+.radio:focus + label {
+  outline: 0.2rem solid rgba(0, 0, 0, 0.2);
+  outline-offset: 0.1rem;
+}
+
+.phone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #e5ebfc;
+  height: 5.5rem;
+  border-radius: 5.5rem;
+}
+.phone > button {
+  width: 4.7rem;
+}
+.phone input {
+  flex: 1;
+  border: none;
+  border-left: 1px solid #1f1f1f;
+  height: 2.3rem;
+  background: transparent;
+}
+.phone__list {
+  position: absolute;
+  top: 2.5rem;
+  display: none;
+}
+.phone__list.--active {
+  display: block;
+}
+
+.dialog.confirm, .dialog.alert {
+  padding-top: 5.7rem;
+  overflow: visible;
+}
+.dialog.confirm::before, .dialog.alert::before {
+  position: absolute;
+  left: 50%;
+  top: -4rem;
+  z-index: var(--zindex, 1);
+  transform: translateX(-50%);
+  content: "";
+  width: 8rem;
+  height: 8rem;
+  border-radius: 100%;
+  filter: drop-shadow(0 0.3rem 0.8rem rgba(0, 0, 0, 0.16));
+}
+
+.dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: var(--zindex, 1000);
+  transform: translate(-50%, -50%);
+  padding: 2.5rem 2rem;
+  border-radius: 1.9rem;
+}
+.dialog[open] {
+  animation: dialogUp 1 2s both;
+}
+.dialog[open]::backdrop {
+  animation: backdropFadeIn 1 0.5s 0.5s both;
+}
+.dialog.alert::before {
+  background: url(../images/ico_alert.svg) no-repeat center #ffffff;
+  background-size: 5rem;
+}
+.dialog.confirm::before {
+  background: url(../images/ico_confirm.svg) no-repeat center #ffffff;
+  background-size: 5rem;
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(2px);
+}
+
+@keyframes backdropFadeIn {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes dialogUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes dialogUpDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -10%);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
 .header.profile {
   display: flex;
   justify-content: space-between;
