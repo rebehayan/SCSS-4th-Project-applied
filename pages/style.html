@@ -190,13 +190,52 @@
         <li><button>깃발2</button></li>
         <li><button>깃발3</button></li>
       </ul>
-      <input type="tel" name="" id="" />
+      <input type="tel" name="" id="" data-xxx="" />
     </div>
     <hr />
     <button class="open-alert">경고창열기</button>
     <dialog class="dialog alert">
       <strong>We couldn't proceed<br />your payment</strong>
       <p>Please, change your payment method or try again</p>
+      <button class="btn xs blue close-alert">Close</button>
     </dialog>
+    <template>
+      WebComponent
+      <button class="btn xs blue close-alert">Close</button>
+    </template>
+    <hr />
+    <nav>
+      <ul class="tab-type1">
+        <li><button>All</button></li>
+        <li><button>10%</button></li>
+        <li class="--active"><button>20%</button></li>
+        <li><button>30%</button></li>
+        <li><button>40%</button></li>
+        <li><button>50%</button></li>
+      </ul>
+    </nav>
+    <div class="tab-content">
+      <div>all내용</div>
+      <div>10%내용</div>
+      <div>20%내용</div>
+      <div>30%내용</div>
+      <div>...</div>
+    </div>
+
+    <div class="half-circle"></div>
+
+    <hr />
+
+    <div class="gallery-box">
+      <div>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+      Watch
+    </div>
+    <hr />
+    <input type="checkbox" class="toggle" id="chk1_1" /><label for="chk1_1"></label>
   </body>
 </html>
