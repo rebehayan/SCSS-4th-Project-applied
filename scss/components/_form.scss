@@ -1,15 +1,43 @@
 @use "../abstracts/" as *;
 
-.input {
+%inputBase {
   width: 100%;
-  height: rem(52);
   padding: 0 rem(19);
-  border-radius: rem(52);
-  background: $grayf8;
   box-sizing: border-box;
   border: none;
   color: $black;
+}
+
+@mixin inputSize($size, $rounded: $size) {
+  height: rem($size);
+  border-radius: rem($rounded);
+}
+
+// 1. input은 무조건 둥글게 만든다.
+// 2. 만약에 둥글기가 다르면 추가 값을 받는다.
+
+.input {
+  @extend %inputBase;
+  background: $grayf8;
+  &.sm {
+    @include inputSize(30);
+  }
+  &.base {
+    @include inputSize(36);
+  }
+  &.md {
+    @include inputSize(50);
+  }
+  &.lg {
+    @include inputSize(55);
+  }
   &::placeholder {
     color: $grayd2;
   }
 }
+
+// 회색, 파랑색
+// 30 / 7
+// 36 / 9
+// 50 / 9
+// 55
