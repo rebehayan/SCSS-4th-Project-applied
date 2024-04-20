@@ -190,9 +190,13 @@ body {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
+.heading + .star {
+  margin-left: -10px;
+}
+
 .only-product, .product-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, auto));
 }
 
 .product-like__thumb, .product-list__thumb, .product-vertical a {
