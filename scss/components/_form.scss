@@ -1,0 +1,107 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+%inputBase {
+    width:100%;
+    padding:0 rem(19);
+    box-sizing: border-box;
+    border:none;
+    color:$black;
+}
+
+@mixin inputSize ($size, $rounded:$size){
+    //var(지정값, 기본값)
+
+    height:var(--height, rem($size));
+    border-radius: rem($rounded);
+}
+//1. input은 무조건 둥글게
+//2. 둥글기가 다르면 추가값
+.input {
+    @extend %inputBase;
+    background:$grayf8;
+    &.sm {
+        @include inputSize(30)
+    }
+    &.base {
+        @include inputSize(36)
+    }
+    &.md {
+        @include inputSize(50)
+    }
+    &.lg {
+        @include inputSize(55)
+    }
+    &.rounded-sm {
+        border-radius: rem(7);
+    }
+    &.rounded-base {
+        border-radius: rem(9);
+    }
+    &.blue {
+        background-color: $bluee5;
+        &::placeholder {
+            color:$blue9e;
+        }
+    }
+    &::placeholder {
+        color:$grayd2;
+    }
+}
+
+.radio {
+    @include a11y-hidden;
+    + label {
+        @include background("bg_radio_off.svg", right rem(8) center, $pinkff, rem(26) auto);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0 rem(42);
+        box-sizing: border-box;
+        height: rem(40);
+        border-radius: rem(40);
+        color: $black;
+        font-family: $english2;
+        font-size: rem(15);
+        font-weight: 500;
+        letter-spacing: rem(-0.15);
+        cursor: pointer;
+        }
+        &:checked {
+        + label {
+            @include background("bg_radio_on.svg", right rem(8) center, $bluee5, rem(26) auto);
+            color: $blue;
+            font-weight: 700;
+        }
+        &:focus {
+            + label {
+                outline:rem(2) solid rgba($black, 0.2);
+                outline-offset: rem(1);
+            }
+        }
+    }
+}
+.phone {
+    @extend %inputBase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: $bluee5;
+    height: rem(55);
+    border-radius: rem(55);
+    > button {
+      width: rem(47);
+    }
+    input {
+      flex: 1;
+      border: none;
+      border-left: 1px solid #1f1f1f;
+      height: rem(23);
+      background: transparent;
+    }
+    &__list {
+      position: absolute;
+      display: none;
+    }
+  }
