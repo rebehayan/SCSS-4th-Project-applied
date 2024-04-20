@@ -626,6 +626,18 @@ li:hover .product-like__thumb img, li:hover .product-list__thumb img, li:hover .
   height: 5.5rem;
   border-radius: 5.5rem;
 }
+.input.rounded-sm {
+  border-radius: 0.7rem;
+}
+.input.rounded-base {
+  border-radius: 0.9rem;
+}
+.input.blue {
+  background-color: #e5ebfc;
+}
+.input.blue::placeholder {
+  color: #9eb4e8;
+}
 .input::placeholder {
   color: #d2d2d2;
 }

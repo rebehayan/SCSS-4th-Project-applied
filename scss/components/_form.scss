@@ -31,6 +31,18 @@
   &.lg {
     @include inputSize(55);
   }
+  &.rounded-sm {
+    border-radius: rem(7);
+  }
+  &.rounded-base {
+    border-radius: rem(9);
+  }
+  &.blue {
+    background-color: $bluee5;
+    &::placeholder {
+      color: $blue9e;
+    }
+  }
   &::placeholder {
     color: $grayd2;
   }
