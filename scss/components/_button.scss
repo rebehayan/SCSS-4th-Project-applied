@@ -38,6 +38,34 @@
     height: rem(30);
   }
 }
+%btnGroup1 {
+  display: inline-block;
+  position: relative;
+  width: rem(35);
+  height: rem(35);
+  &.alram {
+    &::after {
+      content: "";
+      @include position(a, right, 0, top, 0);
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      background-color: $blue;
+    }
+  }
+}
+.btn-message {
+  @extend %btnGroup1;
+  @include background("btn_message.svg");
+}
+.btn-menu {
+  @extend %btnGroup1;
+  @include background("btn_menu.svg");
+}
+.btn-setting {
+  @extend %btnGroup1;
+  @include background("btn_setting.svg");
+}
 
 @include buttonSize(lg, 60, 22, 44);
 @include buttonSize(md, 50, 22, 44);

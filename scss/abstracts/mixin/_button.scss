@@ -14,6 +14,11 @@
     height: rem($height);
     font-size: rem($fontSize);
     padding: 0 rem($padding);
+    @if $size {
+      &.rounded {
+        border-radius: rem($height);
+      }
+    }
   }
 }
 @mixin buttonColor($class, $color, $bgColor, $borderWidth: null, $borderColor: null) {

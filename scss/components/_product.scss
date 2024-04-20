@@ -43,15 +43,15 @@
       transform: scale(1.2);
       transform-origin: center;
     }
-    &.video {
-      &::after {
-        @include background();
-        @include position(a, left, 50%, top, 50%, 10);
-        content: "";
-        width: rem();
-        height: rem();
-      }
-    }
+    // &.video {
+    //   &::after {
+    //     @include background();
+    //     @include position(a, left, 50%, top, 50%, 10);
+    //     content: "";
+    //     width: rem();
+    //     height: rem();
+    //   }
+    // }
   }
 }
 
