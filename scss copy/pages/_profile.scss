@@ -1,0 +1,531 @@
+@use  "../abstracts/" as *;
+@use "../components/" as *;
+@use "../base/" as *;
+
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.showcut-wrap {
+    display: flex;
+    gap: 1rem;
+    & li{
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: $grayf8;
+            border-radius: 100%;
+            position: relative;
+            &>a{
+                @include position(a, left, 50%, top, 50%);
+            }
+        }
+    }
+.my-active_list {
+    display: flex;
+    gap: 1rem;
+    .btn{
+        border-radius: 2rem;           
+    }
+}
+
+
+/*------------------------------- Recently viewed -----------------------------------*/
+
+
+
+/*------------------------------- my-orders -----------------------------------*/
+
+.my-order-list {
+    display: inline-flex;
+    gap: rem(13);
+    margin: rem(20) 0 rem(20) rem(20);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/*------------------------------- Stories(product-vertical) -----------------------------------*/
+
+
+.Stories{
+    margin: rem(20) 0 rem(20) rem(20);
+    //@include scroll(b, rem(3), $yellowfe, null);
+    .Stories::-webkit-scrollbar {
+        background-color: #fee375;
+        height: 0.5rem;
+        margin-top: 2rem;
+    }
+    .Stories::-webkit-scrollbar-thumb {
+        background-color: #f9d000;
+        border-radius: 30px;
+    }
+    &>li{
+        position: relative;
+        &::before{
+            content: "";
+            width: rem(30);
+            height: rem(30);
+            border-radius: 100%;
+            margin: 0;
+            background: $grayd9;
+            opacity: 50%;
+            @include position(a, left, 50%, top, 50%, 1);
+            // position: absolute;
+            // left: 50%;
+            // top: 50%;
+            // transform: translate(-50%, -50%);
+            
+            // z-index: 1;
+        }
+        &::after{
+           // @include after(30, 30, 100%, 0, left 50%, top 50%, 1, $grayd9);
+            content: "";
+            width: rem(30);
+            height: rem(30);
+            border-radius: 100%;
+            margin: 0;
+            opacity: 56%;
+            @include background("../../imgs/Stories/ico_mov_play.svg", left 3.4px top 3.5px, null, contain);
+            @include position(a, left, 50%, top, 50%, 2);
+            //background: url("../../imgs/Stories/ico_mov_play.svg") no-repeat left 5px top 5px;
+            //position: absolute;
+            //left: 50%;
+            //top: 50%;
+            //transform: translate(-50%, -50%);
+            //z-index: 2;
+        }
+    }
+}
+
+
+
+/*------------------------------- New Items -----------------------------------*/
+
+
+.new-items_title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: rem(20);
+}
+
+
+
+
+.new-items_wrap{
+    display: flex;
+    gap: rem(6);
+    margin-left: rem(20);
+    padding-bottom: rem(20);
+    overflow-x: auto;
+    @include scroll(b, rem(3), $yellowfe, null);
+    .new-items_wrap::-webkit-scrollbar {
+        margin-top: 2rem;
+    }
+
+    .new-items_card {
+//     width: rem(402);
+//    // height: ;
+//     overflow: hidden;
+         .new-items_card_img{
+            background-color: $white;
+                width: rem(130);
+                height: rem(130);
+                padding: rem(5);
+                display: block;
+                overflow: hidden;
+                border-radius: rem(9);
+                filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+
+             img{
+                 width: rem(130);
+                 height: rem(130);
+                 border-radius: rem(5);
+                 object-fit:cover;
+
+            }
+        }
+        .new-items_text{
+            margin-top: rem(6);
+            .new-items_text2{
+                font-family: $english2;
+            }
+        }
+    }
+}
+
+
+
+/*------------------------------- Most-Popular -----------------------------------*/
+
+
+
+.Most-Popular_title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: rem(20);
+}
+
+.Most-Popular_wrap{
+    display: flex;
+    gap: rem(6);
+    margin-left: rem(20);
+    padding-bottom: rem(20);
+    overflow-x: auto;
+    @include scroll(b, rem(3), $yellowfe, null);
+    .Most-Popular_wrap::-webkit-scrollbar {
+        margin-top: rem(20);               /*-----card와 scroll과 사이의 간격을 벌려 주고 싶은데요ㅜㅜ-----*/
+    }
+
+    .Most-Popular_card {
+//     width: rem(402);
+//    // height: ;
+//     overflow: hidden;
+         .Most-Popular_card_img{
+            background-color: $white;
+                width: rem(93);
+                height: rem(140);
+                padding: rem(5);
+                display: block;
+                overflow: hidden;
+                border-radius: rem(9);
+                filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+
+             img{
+                 width: rem(93);
+                 height: rem(104);
+                 border-radius: rem(5);
+                 object-fit:cover;
+                
+
+            }
+        }
+        .Most-Popular_text{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: rem(6);
+            .Most-Popular_text2{
+                font-family: $english2;
+                .icon-heart{
+                    display: inline-block;
+                }
+                &::after{
+                    content: "";
+                    width: rem(10.45);
+                    height: rem(13);
+                    display: inline-block;
+                    //background: url(../imgs/MostPopular/Icon-heart.svg) no-repeat center cover;
+                    @include background ("MostPopular/Icon-heart.svg");
+                }
+            }
+        }
+    }
+}
+
+
+
+/*------------------------------- categories -----------------------------------*/
+
+
+
+.categories_title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: rem(20);
+}
+
+
+.categories_wrap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(6);
+    margin-left: rem(20);
+    margin-bottom: rem(20);
+    padding-right: rem(20);
+    .categories_card {
+            background-color: $white;
+            width: rem(155);
+            height: rem(182);
+            padding: rem(5);
+            display: block;
+            overflow: hidden;
+            border-radius: rem(9);
+            filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+
+         .categories_card_img{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(6);
+            overflow: hidden;
+             img{
+                 width: rem(75);
+                 height: rem(75);
+                 border-radius: rem(5);
+                 object-fit:cover;
+                 overflow: hidden;
+            }
+        }
+        .categories_text{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: rem(6);
+            
+            .categories_text1{
+                font-family: $english2;
+                font-weight: bold;
+                position: relative;
+                background-color: $grayf8;
+                border-radius: rem(6);
+                padding: 0 rem(10);
+                height: rem(20);
+            }
+            .categories_text2{
+                font-family: $english2;
+            }
+        }
+    }
+}
+
+
+
+/*------------------------------- Flash-Sale -----------------------------------*/
+
+
+
+.Flash-Sale_title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: rem(20);
+    p{
+        position: relative;
+       &::before{
+        content: "";
+        display: inline-block;
+        width: rem(17.1);
+        height: rem(19.95);
+        //background: url(../imgs/Categories/icon_clock.svg) no-repeat center cover;
+        @include background ("Categories/icon_clock.svg");
+        position: absolute;
+        top: rem(7);
+        left: rem(-23);
+        }
+        strong{
+            font-family: $english2;
+            background: $pinkff;
+            padding: rem(5) rem(10); 
+            border-radius: rem(8);
+            
+        }
+        
+    }
+}
+
+.Flash-Sale_wrap{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(6);
+    margin-left: rem(20);
+    margin-bottom: rem(20);
+    padding-right: rem(20);
+    .Flash-Sale_card {
+            background-color: $white;
+            width: rem(99);
+            height: rem(103);
+            padding: rem(5);
+            display: block;
+            overflow: hidden;
+            border-radius: rem(9);
+            filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+
+         .Flash-Sale_card_img{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(6);
+            position: relative;
+            img{
+                 width: rem(99);
+                 height: rem(103);
+                 border-radius: rem(5);
+                 object-fit:cover;
+            }
+            span{
+                padding: rem(1) rem(3);
+                border-radius: rem(5);
+                color: $white;
+                background: linear-gradient(to right, $pinkf8, $pink);
+                @include position (a, right, 0, top, 0);
+            }
+        }
+        .Flash-Sale_text{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: rem(6);
+            
+            .Flash-Sale_text1{
+                font-family: $english2;
+                font-weight: bold;
+                position: relative;
+                background-color: $grayf8;
+                border-radius: rem(6);
+                padding: 0 rem(10);
+                height: rem(20);
+            }
+            .csategories_text2{
+                font-family: $english2;
+            }
+        }
+    }
+}
+
+      
+
+/*------------------------------------- Just For You --------------------------------------*/
+
+
+.just-for-you_title::after{
+    @include background ("JustForYou/ico_star.svg");
+    content: "";
+    width: rem(14);
+    height: rem(20);
+    display: inline-block;
+    margin-left: rem(3);
+}
+.just-for-you_wrap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(6);
+    margin: rem(0) rem(20) rem(20) rem(20);
+    //margin-bottom: rem(20);
+    .just-for-you_card {
+//     width: rem(402);
+//    // height: ;
+//     overflow: hidden;
+         .just-for-you_card_img{
+            background-color: $white;
+                width: rem(155);
+                height: rem(171);
+                padding: rem(5);
+                display: block;
+                overflow: hidden;
+                border-radius: rem(9);
+                filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+
+             img{
+                 width: rem(155);
+                 height: rem(171);
+                 border-radius: rem(5);
+                 object-fit:cover;
+
+            }
+        }
+        .just-for-you_text{
+            margin-top: rem(6);
+            .just-for-you_text2{
+                font-family: $english2;
+            }
+        }
+    }
+}
+
+
+/*------------------------------------- Bottom Bar --------------------------------------*/
+
+
+.bottom-bar_wrap{
+    height: rem(48);
+    padding: rem(10) rem(20);
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #cccccc28;
+    position: sticky;
+    bottom: rem(15);
+    left: 0;
+    right: 0;
+    z-index: 5;
+    //filter: drop-shadow(rem(5) rem(5) rem(10) rgba(141, 141, 141, 0.475));
+    li{
+        width: rem(24);
+        height: rem(30);
+        //padding: rem(1);
+
+    }
+}
+
+.icon1::after {
+    @include background("ButtomBar/ico-home.svg");
+    content: "";
+    width: rem(24);
+    height: rem(24);
+    display: block;
+    margin-top: rem(3);
+}
+.icon2::after {
+    @include background("ButtomBar/ico-heart.svg");
+    content: "";
+    width: rem(24);
+    height: rem(24);
+    display: block;
+    margin-top: rem(5);
+    margin-left: rem(1);
+}
+.icon3::after {
+    @include background("ButtomBar/ico-categories.svg");
+    content: "";
+    width: rem(24);
+    height: rem(24);
+    display: block;
+    margin-top: rem(4);
+    margin-left: rem(1);
+}
+.icon4::after {
+    @include background("ButtomBar/ico-cart.svg");
+    content: "";
+    width: rem(24);
+    height: rem(24);
+    display: block;
+    margin-top: rem(3);
+}
+.icon5::after {
+    @include background("ButtomBar/ico-community.svg");
+    content: "";
+    width: rem(24);
+    height: rem(30);
+    display: block;
+}
+.icon6::after {
+    @include background("ButtomBar/ico-community.svg");
+    content: "";
+    width: rem(24);
+    height: rem(24);
+    display: block;
+}
+
+.bar{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    &::after{
+        @include background("ButtomBar/ico-bar.svg");
+        content: "";
+        width: rem(134);
+        height: rem(5);
+        display: block;
+        padding: rem(5) 0;
+
+
+    }
+}
